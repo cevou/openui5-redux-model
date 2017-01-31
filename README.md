@@ -48,7 +48,7 @@ jQuery.sap.registerModuleShims({
 ## Usage
 
 To use the redux model you first have to instantiate a redux store. You can find more information about what options
-are available in the redux documentation. Then you can instantiate the Model and the it for the UI5 Core, your
+are available in the redux documentation. Then you can instantiate the Model and set it for the UI5 Core, your
 component, ....
 
 ```javascript
@@ -72,7 +72,7 @@ It is not a best practice to access data in your store directly because the stru
 easily change as you develop your application. The better approach is to use selectors with a defined API. This
 selectors are simple functions which get the current state passed as an argument and return data based on that.
 
-You can you selectors with the redux model. Just use the special binding syntax in your views.
+You can use selectors with the redux model. Just use the special binding syntax in your views.
 
 ```$xslt
 <Button text="{/selector/TestSelectorObject/selectorFunction}" />
@@ -83,8 +83,8 @@ selector is defined. It will be loaded via the UI5 module system. You can specif
 argument when you create the ReduxModel.
 
 ```javascript
-var oStore = Redux.createStore(fnReducer, 'my.test.namespace');
-var oModel = new ReduxModel(oStore);
+var oStore = Redux.createStore(fnReducer);
+var oModel = new ReduxModel(oStore, 'my.test.namespace');
 sap.ui.getCore().setModel(oModel);
 ```
 
