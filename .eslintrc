@@ -1,0 +1,10 @@
+{
+  "env": {
+    "browser": true,
+    "jquery": true
+  },
+  "globals": {
+    "sap": true
+  },
+  "extends": "eslint:recommended"
+}

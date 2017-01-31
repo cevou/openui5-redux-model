@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<library xmlns="http://www.sap.com/sap.ui.library.xsd" >
+  <name>redux</name>
+  <vendor>Christoph Kraemer</vendor>
+  <copyright>Christoph Kraemer (c) 2017 Licensed under the Apache License, Version 2.0 - see LICENSE.</copyright>
+  <version>0.1.0</version>
+
+  <documentation>OpenUI5 Redux integration</documentation>
+
+  <dependencies>
+    <dependency>
+      <libraryName>sap.ui.core</libraryName>
+    </dependency>
+  </dependencies>
+</library>
