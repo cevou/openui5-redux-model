@@ -17,7 +17,7 @@ sap.ui.define([
       var that = this;
 
       this.oStore = oStore;
-      this.sSelectorRoot = sSelectorRoot ? sSelectorRoot + '/' : '';
+      this.sSelectorRoot = sSelectorRoot ? sSelectorRoot.replace(/\./g, '/') + '/' : '';
       this.sDefaultBindingMode = BindingMode.OneWay;
       this.mSupportedBindingModes = { OneWay: true, TwoWay: false, OneTime: false };
 
