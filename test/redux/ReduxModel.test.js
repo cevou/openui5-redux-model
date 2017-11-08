@@ -7,8 +7,15 @@ sap.ui.define('redux.test.ReduxBinding', [
     var oModel;
 
     beforeEach(function () {
-      var oStore = Redux.createStore(TestReducer.reducer);
-      oModel = new ReduxModel(oStore, 'fixtures');
+      var oStore = Redux.createStore(TestReducer);
+      oModel = new ReduxModel(oStore, {
+        getText: function(oState) {
+          return oState.test;
+        },
+        getObjectById: function(oState, oContext) {
+          return oState.list[oContext.getObject()];
+        }
+      });
       sap.ui.getCore().setModel(oModel);
     });
 
@@ -33,15 +40,15 @@ sap.ui.define('redux.test.ReduxBinding', [
 
     it('should query using selector', function () {
       var oStore = oModel.getStore();
-      expect(oModel.getProperty('/selector/TestReducer/selectors/getText')).toEqual('test1');
+      expect(oModel.getProperty('/selector/getText')).toEqual('test1');
       oStore.dispatch({ type: 'TEST1' });
-      expect(oModel.getProperty('/selector/TestReducer/selectors/getText')).toEqual('test2');
+      expect(oModel.getProperty('/selector/getText')).toEqual('test2');
     });
 
     it('should query using selector and context', function () {
       var oStore = oModel.getStore();
       var oContext = new Context(oModel, '/obj/test');
-      expect(oModel.getProperty('/selector/TestReducer/selectors/getObjectById', oContext)).toEqual('foo');
+      expect(oModel.getProperty('/selector/getObjectById', oContext)).toEqual('foo');
     });
   });
 });

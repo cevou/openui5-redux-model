@@ -8,7 +8,7 @@ sap.ui.define([
   'use strict';
 
   var ReduxModel = ClientModel.extend('redux.ReduxModel', {
-    constructor: function constructor(oStore, sSelectorRoot) {
+    constructor: function constructor(oStore, oSelectors) {
       ClientModel.call(this);
 
       if (!oStore) {
@@ -17,7 +17,7 @@ sap.ui.define([
       var that = this;
 
       this.oStore = oStore;
-      this.sSelectorRoot = sSelectorRoot ? sSelectorRoot.replace(/\./g, '/') + '/' : '';
+      this.oSelectors = oSelectors  || {};
       this.sDefaultBindingMode = BindingMode.OneWay;
       this.mSupportedBindingModes = { OneWay: true, TwoWay: false, OneTime: false };
 
@@ -64,8 +64,7 @@ sap.ui.define([
     if (!aParts[0]) {
       // absolute path starting with slash
       if (aParts[1] === 'selector') {
-        var sSelectorClass = this.sSelectorRoot + aParts[2].replace(/\./g, '/');
-        oNode = sap.ui.requireSync(sSelectorClass);
+        oNode = this.oSelectors[aParts[2]](this.oStore.getState(), oContext);
         iIndex = 3;
       } else {
         oNode = oState[aParts[1]];

@@ -22,15 +22,5 @@ sap.ui.define([], function() {
     return state;
   };
 
-  return {
-    reducer: reducer,
-    selectors: {
-      getText: function(oState) {
-        return oState.test;
-      },
-      getObjectById: function(oState, oContext) {
-        return oState.list[oContext.getObject()];
-      }
-    }
-  };
+  return reducer;
 });
