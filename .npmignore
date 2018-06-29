@@ -1,11 +1,9 @@
 .editorconfig
 .eslintrc
 .travis.yml
-bower.json
 Gruntfile.js
 karma.conf.js
 
 .idea
-bower_components
 src
 test
