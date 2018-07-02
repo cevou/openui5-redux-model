@@ -1,4 +1,4 @@
-sap.ui.define(['sap/ui/model/ClientPropertyBinding', 'sap/ui/model/ChangeReason'], function (ClientPropertyBinding, ChangeReason) {
+sap.ui.define(['sap/ui/model/ClientPropertyBinding', 'sap/ui/model/ChangeReason', 'jquery.sap.global'], function (ClientPropertyBinding, ChangeReason, jQuery) {
   'use strict';
 
   var ReduxPropertyBinding = ClientPropertyBinding.extend('redux.ReduxPropertyBinding');

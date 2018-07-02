@@ -1,4 +1,4 @@
-sap.ui.define(['sap/ui/model/ClientListBinding', 'sap/ui/model/ChangeReason'], function (ClientListBinding, ChangeReason) {
+sap.ui.define(['sap/ui/model/ClientListBinding', 'sap/ui/model/ChangeReason', 'jquery.sap.global'], function (ClientListBinding, ChangeReason, jQuery) {
   'use strict';
 
   var ReduxListBinding = ClientListBinding.extend('redux.ReduxListBinding');
