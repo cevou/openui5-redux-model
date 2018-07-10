@@ -8,6 +8,7 @@
     "sapui5",
     "redux"
   ],
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/cevou/openui5-redux-model"
@@ -20,10 +21,10 @@
     "build": "grunt"
   },
   "dependencies": {
-    "@openui5/sap.ui.core": "^1.56.2"
+    "@openui5/sap.ui.core": "^1.56.3"
   },
   "devDependencies": {
-    "eslint": "^5.0.1",
+    "eslint": "^5.1.0",
     "expect": "^1.20.2",
     "grunt": "^1.0.3",
     "grunt-contrib-copy": "^1.0.0",

@@ -20,13 +20,28 @@ sap.ui.define(['sap/ui/model/ClientListBinding', 'sap/ui/model/ChangeReason', 'j
     return this.getContexts(this.iLastStartIndex, this.iLastLength);
   };
 
+  ReduxListBinding.prototype.updateIndices = function() {
+    var i;
+
+    this.aIndices = [];
+    if (Array.isArray(this.oList)) {
+      for (i = 0; i < this.oList.length; i++) {
+        this.aIndices.push(i);
+      }
+    } else {
+      for (i in this.oList) {
+        this.aIndices.push(i);
+      }
+    }
+  };
+
   ReduxListBinding.prototype.update = function () {
     var oList = this.oModel._getObject(this.sPath, this.oContext);
     if (oList) {
       if (jQuery.isArray(oList)) {
         this.oList = oList.slice(0);
       } else {
-        throw new Error('A list binding must be represented by an array.');
+        this.oList = jQuery.extend(true, {}, oList);
       }
       this.updateIndices();
       this.applyFilter();

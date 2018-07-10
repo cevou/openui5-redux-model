@@ -125,9 +125,16 @@ sap.ui.define('redux.test.ReduxListBinding', [
     });
 
     it('should return the correct data with object', function () {
-      expect(function() {
-        oModel.bindList('/object');
-      }).toThrow(/A list binding must be represented by an array/);
+      var oBinding = oModel.bindList('/object');
+      expect(oBinding.getPath()).toEqual('/object');
+      expect(oBinding.getModel()).toEqual(oModel);
+      expect(oBinding.getLength()).toEqual(2);
+      expect(oBinding.isLengthFinal()).toBe(true);
+
+      const aContexts = oBinding.getContexts();
+
+      expect(aContexts[0].getPath()).toEqual('/object/test1');
+      expect(aContexts[1].getPath()).toEqual('/object/test2');
     });
   });
 });
