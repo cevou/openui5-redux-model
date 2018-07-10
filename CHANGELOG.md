@@ -1,5 +1,13 @@
 # Changelog
 
+# 0.3.3
+
+- Exclude not needed files from npm package
+
+# 0.3.2
+
+- Support objects as data
+
 # 0.3.0
 
 - Switch from Bower dependencies to NPM to define dependency
