@@ -21,7 +21,7 @@
     "build": "grunt"
   },
   "dependencies": {
-    "@openui5/sap.ui.core": "^1.56.3"
+    "@openui5/sap.ui.core": "^1.56.4"
   },
   "devDependencies": {
     "eslint": "^5.1.0",
