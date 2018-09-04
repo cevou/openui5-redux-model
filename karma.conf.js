@@ -23,7 +23,7 @@ module.exports = function(config) {
         config: {
           libs: 'redux',
           theme: 'base',
-          resourceRoots: {
+          resourceroots: {
             redux: './base/src/redux',
             fixtures: './base/test/fixtures'
           }

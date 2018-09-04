@@ -1,4 +1,8 @@
-sap.ui.define(['sap/ui/model/ClientPropertyBinding', 'sap/ui/model/ChangeReason', 'jquery.sap.global'], function (ClientPropertyBinding, ChangeReason, jQuery) {
+sap.ui.define([
+  'sap/ui/model/ClientPropertyBinding',
+  'sap/ui/model/ChangeReason',
+  'sap/base/util/deepEqual'
+], function (ClientPropertyBinding, ChangeReason, deepEqual) {
   'use strict';
 
   var ReduxPropertyBinding = ClientPropertyBinding.extend('redux.ReduxPropertyBinding');
@@ -10,7 +14,7 @@ sap.ui.define(['sap/ui/model/ClientPropertyBinding', 'sap/ui/model/ChangeReason'
 
     var oValue = this._getValue();
     // optimize for not firing the events when unneeded
-    if (!jQuery.sap.equal(oValue, this.oValue) || bForceUpdate) {
+    if (!deepEqual(oValue, this.oValue) || bForceUpdate) {
       this.oValue = oValue;
       this._fireChange({ reason: ChangeReason.Change });
     }

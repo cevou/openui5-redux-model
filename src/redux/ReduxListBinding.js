@@ -1,4 +1,9 @@
-sap.ui.define(['sap/ui/model/ClientListBinding', 'sap/ui/model/ChangeReason', 'jquery.sap.global'], function (ClientListBinding, ChangeReason, jQuery) {
+sap.ui.define([
+  'sap/ui/model/ClientListBinding',
+  'sap/ui/model/ChangeReason',
+  'sap/base/util/deepEqual',
+  'sap/ui/thirdparty/jquery'
+], function (ClientListBinding, ChangeReason, deepEqual, jQuery) {
   'use strict';
 
   var ReduxListBinding = ClientListBinding.extend('redux.ReduxListBinding');
@@ -38,7 +43,7 @@ sap.ui.define(['sap/ui/model/ClientListBinding', 'sap/ui/model/ChangeReason', 'j
   ReduxListBinding.prototype.update = function () {
     var oList = this.oModel._getObject(this.sPath, this.oContext);
     if (oList) {
-      if (jQuery.isArray(oList)) {
+      if (Array.isArray(oList)) {
         this.oList = oList.slice(0);
       } else {
         this.oList = jQuery.extend(true, {}, oList);
@@ -60,7 +65,7 @@ sap.ui.define(['sap/ui/model/ClientListBinding', 'sap/ui/model/ChangeReason', 'j
     }
 
     var oList = this.oModel._getObject(this.sPath, this.oContext);
-    if (!jQuery.sap.equal(this.oList, oList) || bForceUpdate) {
+    if (!deepEqual(this.oList, oList) || bForceUpdate) {
       this.update();
       this._fireChange({ reason: ChangeReason.Change });
     }
