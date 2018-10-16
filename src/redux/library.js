@@ -3,7 +3,7 @@ sap.ui.define(['jquery.sap.global'], function() {
 
     sap.ui.getCore().initLibrary({
         name: 'redux',
-        version: '0.1.0',
+        version: '0.4.2',
         dependencies: ['sap.ui.core']
     });
 });
